@@ -1,0 +1,52 @@
+<div class="wrapper">
+    <div class="title-text">
+      <div class="title login">
+        Sign Up
+      </div>
+      <!-- <div class="title signup">
+        Signup
+      </div> -->
+    </div>
+    <div class="form-container">
+        <div class="form-inner">
+            <!-- <div class="login-form"> -->
+              <form class="login login-form" [formGroup]="signupForm">
+                <div class="field">
+                  <input type="text"  name="name" formControlName="name" placeholder="Name">
+                </div>
+                <div class="field">
+                    <input type="text" formControlName="email" placeholder="Email" [ngClass]="{ 'is-invalid': submitted && formControl.email.errors }">
+
+                    <div *ngIf="submitted && formControl.email.errors" class="invalid-feedback">
+                      <div *ngIf="formControl.email.errors.required">Email is required</div>
+                      <div *ngIf="formControl.email.errors.email">Email must be a valid email address</div>
+                  </div>
+                </div>
+                <!-- <div class="field">
+                  <input type="text" name="staff_id" formControlName="staff_id"  placeholder="Staff_id" required>
+                </div> -->
+                <div class="field">
+                  <input type="password" name="password" formControlName="password"  placeholder="Password" [ngClass]="{ 'is-invalid': submitted && formControl.password.errors }">
+                  <div *ngIf="submitted && formControl.password.errors" class="invalid-feedback">
+                    <div *ngIf="formControl.password.errors.required">Password is required</div>
+                    <div *ngIf="formControl.password.errors.minlength">Password must be at least 6 characters</div>
+                </div>
+                </div>
+                <div class="field btn">
+                  <div class="btn-layer"></div>
+                  <button (click)="registerUser()" type="submit" style="background-color: black; color:#fff" class="btn btn btn-lg">Signup</button>
+
+                  <!-- <input (click)="registerUser()" type="submit" value="Signup"> -->
+                </div>
+                <div class="signup-link">
+                  Already a member? <a href="/auth"  style="color:blue">login now</a>
+                </div>
+                <div style="text-align: center; padding-top:15px; font-size: 17px;">
+                    <a href="/home">Back</a>
+                </div>
+              </form>
+          <!-- </div> -->
+         
+        </div>
+    </div>
+  </div>
