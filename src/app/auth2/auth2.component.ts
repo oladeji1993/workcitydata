@@ -2,6 +2,9 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
+import { NotificationService } from '../services/notification.service';
+
 
 @Component({
   selector: 'app-auth2',
@@ -15,11 +18,14 @@ export class Auth2Component implements OnInit {
   constructor(
     public fb: FormBuilder,
     private auth: AuthService,
-    private SpinnerService: NgxSpinnerService
+    private SpinnerService: NgxSpinnerService,
+    private router: Router,
+    private notifyService : NotificationService 
   ) { }
 
   ngOnInit(): void {
     this.signupForm = this.fb.group({
+      name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     })
@@ -38,11 +44,16 @@ export class Auth2Component implements OnInit {
     if(this.signupForm.invalid){
       return;
     }else{
-      this.SpinnerService.show();
-      this.auth.registerUser(this.signupForm.value)
-    .subscribe(data =>{
-      console.log(data)
+    this.SpinnerService.show();
+    this.auth.registerUser(this.signupForm.value)
+    .subscribe((data:any) =>{
       this.SpinnerService.hide();
+      console.log(data)
+      this.router.navigate(['/auth'])
+      this.notifyService.showSuccess(data.message, "Success")
+    }, err=>{
+      this.SpinnerService.hide();
+      this.notifyService.showError(err.error, "Error")
     })
     }
   }

@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { NgxSpinnerService } from "ngx-spinner";
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-auth',
@@ -18,7 +19,8 @@ export class AuthComponent implements OnInit {
     public fb: FormBuilder,
     private auth: AuthService,
     private router: Router,
-    private SpinnerService: NgxSpinnerService
+    private SpinnerService: NgxSpinnerService,
+    private notifyService : NotificationService
   ) { }
 
   
@@ -35,11 +37,12 @@ export class AuthComponent implements OnInit {
   }
 
   token:any
+  msg:any
   loginUser() : void{
       this.submitted = true;
         if (this.loginForm.invalid) {
             return;
-        }else{
+        }
           this.SpinnerService.show();
           this.auth.loginUser(this.loginForm.value)
           .subscribe((data:any) =>{
@@ -49,30 +52,16 @@ export class AuthComponent implements OnInit {
                 localStorage.setItem('token',  JSON.stringify(this.token));
                 this.SpinnerService.hide();
                 this.router.navigate(['/register2'])
-              }else{
-                this.router.navigate(['/auth'])
+                this.notifyService.showSuccess(data.message, "Success")
+                
               }
+        }, err =>{
+          // this.msg = data.err
+            this.SpinnerService.hide();
+            let error = err.error
+            this.notifyService.showError(error.message, "Error")
+            this.router.navigate(['/auth'])
         })
-      }
-
-    // if(this.loginForm.valid){
-      //  this.SpinnerService.show();
-      // this.auth.loginUser(this.loginForm.value)
-      // .subscribe((data:any) =>{
-      //   console.log(data)
-      //   if(data){
-      //     this.token = data.token;
-      //     localStorage.setItem('token',  JSON.stringify(this.token));
-      //     this.SpinnerService.hide();
-      //     this.router.navigate(['/register2'])
-      //   }else{
-      //     this.router.navigate(['/auth'])
-      //   }
-      // },
-      // );
-    // }
-    
-  
   
   }
 

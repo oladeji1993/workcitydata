@@ -13,6 +13,9 @@ import { AuthService } from './services/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from "ngx-spinner"; 
 import { AuthGuard } from './auth.guard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -31,6 +34,8 @@ import { AuthGuard } from './auth.guard';
     HttpClientModule,
     FormsModule,
     NgxSpinnerModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     ReactiveFormsModule
   ],
   providers: [ AuthService,FormsModule, AuthGuard, 

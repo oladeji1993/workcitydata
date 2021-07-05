@@ -6,8 +6,8 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  private _registerUrl = "https://api.hiltonparkerng.com/admin/register"
-  private _loginUrl = "https://api.hiltonparkerng.com/admin/login";
+  private _registerUrl = "https://api.hiltonparkerng.com/auth/register";
+  private _loginUrl = "https://api.hiltonparkerng.com/auth/login";
   constructor(
     private http : HttpClient,
     private router: Router
