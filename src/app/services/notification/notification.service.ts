@@ -24,19 +24,4 @@ showError(message:any, title:any){
 
 }
 
-
-
-showInfo(message:any, title:any){
-
-    this.toastr.info(message, title)
-
-}
-
-
-
-showWarning(message:any, title:any){
-
-    this.toastr.warning(message, title)
-
-}
 }

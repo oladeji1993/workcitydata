@@ -15,7 +15,6 @@
                   <input type="text"  name="name" formControlName="name" placeholder="Name" [ngClass]="{ 'is-invalid': submitted && formControl.name.errors }">
                   <div *ngIf="submitted && formControl.name.errors" class="invalid-feedback">
                     <div *ngIf="formControl.name.errors.required">Name is required</div>
-                    <!-- <div *ngIf="formControl.email.errors.email">Email must be a valid email address</div> -->
                 </div>
                 </div>
                 <div class="field">
@@ -41,7 +40,7 @@
                   <button (click)="registerUser()" type="submit" style="background-color: black; color:#fff" class="btn btn btn-lg">Signup</button>
                 </div>
                 <div class="signup-link">
-                  Already a member? <a href="/auth"  style="color:blue">login now</a>
+                  Already a member? <a href="/login"  style="color:blue">login now</a>
                 </div>
                 <div style="text-align: center; padding-top:15px; font-size: 17px;">
                     <a href="/home">Back</a>

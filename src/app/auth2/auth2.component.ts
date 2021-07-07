@@ -1,9 +1,9 @@
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../services/auth/auth.service';
 import { Router } from '@angular/router';
-import { NotificationService } from '../services/notification.service';
+import { NotificationService } from '../services/notification/notification.service';
 
 
 @Component({
@@ -49,7 +49,7 @@ export class Auth2Component implements OnInit {
     .subscribe((data:any) =>{
       this.SpinnerService.hide();
       console.log(data)
-      this.router.navigate(['/auth'])
+      this.router.navigate(['/login'])
       this.notifyService.showSuccess(data.message, "Success")
     }, err=>{
       this.SpinnerService.hide();

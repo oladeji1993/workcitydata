@@ -1,9 +1,10 @@
+import { StorageService } from '../services/storage/storage.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../services/auth/auth.service';
 import { NgxSpinnerService } from "ngx-spinner";
-import { NotificationService } from '../services/notification.service';
+import { NotificationService } from '../services/notification/notification.service';
 
 @Component({
   selector: 'app-auth',
@@ -20,7 +21,8 @@ export class AuthComponent implements OnInit {
     private auth: AuthService,
     private router: Router,
     private SpinnerService: NgxSpinnerService,
-    private notifyService : NotificationService
+    private notifyService : NotificationService,
+    private storageService: StorageService
   ) { }
 
   
@@ -49,7 +51,8 @@ export class AuthComponent implements OnInit {
               console.log(data)
               if(data){
                 this.token = data.token;
-                localStorage.setItem('token',  JSON.stringify(this.token));
+                // localStorage.setItem('token',  JSON.stringify(this.token));
+                this.storageService.setAccessToken(this.token)
                 this.SpinnerService.hide();
                 this.router.navigate(['/register2'])
                 this.notifyService.showSuccess(data.message, "Success")
@@ -60,7 +63,7 @@ export class AuthComponent implements OnInit {
             this.SpinnerService.hide();
             let error = err.error
             this.notifyService.showError(error.message, "Error")
-            this.router.navigate(['/auth'])
+            this.router.navigate(['/login'])
         })
   
   }

@@ -1,10 +1,10 @@
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AcesspassComponent } from './acesspass/acesspass.component';
 import { AuthGuard } from './auth.guard';
 import { AuthComponent } from './auth/auth.component';
 import { Auth2Component } from './auth2/auth2.component';
 import { HomeComponent } from './home/home.component';
-import { RegisterComponent } from './register/register.component';
 import { Register2Component } from './register2/register2.component';
 
 const routes: Routes = [
@@ -19,21 +19,24 @@ const routes: Routes = [
   },
 
   {
-    path: "auth",
+    path: "login",
     component: AuthComponent
   },
 
   {
-    path: "register",
-    component: RegisterComponent
+    path: "accesspass",
+    component: AcesspassComponent
   },
+
+
+
   {
     path: "register2",
     component: Register2Component,
     canActivate: [AuthGuard]
   },
   {
-    path: "auth2",
+    path: "signup",
     component: Auth2Component
   }
 ];

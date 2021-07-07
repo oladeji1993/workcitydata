@@ -9,48 +9,91 @@
   </nav>
 <div class="form-container">
     <div class="mt-5" style="text-align:center"><h2>Registration Form</h2></div>
-    <form>
+    <form [formGroup]="memberForm">
         <div class="row mt-5">
             <div class="col-md-12 pb-5">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" name="fullname">
+                    <input type="text" class="form-control" id="floatingInput" formControlName="fullname" name="fullname" [ngClass]="{ 'is-invalid': submitted && formControl.fullname.errors}">
                     <label for="floatingInput">FullName</label>
-                  </div>
+                    <div *ngIf="submitted && formControl.fullname.errors" class="invalid-feedback">
+                        <div *ngIf="formControl.fullname.errors.required">Name is required</div>
+                    </div>
+                </div>
 
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" name="email">
+                    <input type="email" class="form-control" id="floatingInput" formControlName="email" name="email" [ngClass]="{ 'is-invalid': submitted && formControl.email.errors }">
                     <label for="floatingInput">Email address</label>
+                    <div *ngIf="submitted && formControl.email.errors" class="invalid-feedback">
+                        <div *ngIf="formControl.email.errors.required">Email is required</div>
+                        <div *ngIf="formControl.email.errors.email">Email must be a valid email address</div>
+                    </div>
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="floatingInput" name="Phonenumber">
+                    <input type="number" class="form-control" id="floatingInput" name="Phonenumber" formControlName="phonenumber" [ngClass]="{ 'is-invalid': submitted && formControl.phonenumber.errors }">
                     <label for="floatingInput">Phone Number</label>
+                    <div *ngIf="submitted && formControl.phonenumber.errors" class="invalid-feedback">
+                        <div *ngIf="formControl.phonenumber.errors.required">Phone number is required</div>
+                        <div *ngIf="formControl.phonenumber.errors.pattern">Phone number must be at least 11 characters</div>
+                    </div>
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="floatingInput" name="amount">
+                    <input type="number" class="form-control" id="floatingInput" name="amount" formControlName="amount" [ngClass]="{ 'is-invalid': submitted && formControl.amount.errors }">
                     <label for="floatingInput">Amount</label>
+                    <div *ngIf="submitted && formControl.amount.errors" class="invalid-feedback">
+                        <div *ngIf="formControl.amount.errors.required">Amount is required</div>
+                    </div>
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="floatingInput">
+                    <input type="date" class="form-control" name="startdate" formControlName="startdate" id="floatingInput" [ngClass]="{ 'is-invalid': submitted && formControl.startdate.errors }">
                     <label for="floatingInput">Start Date</label>
+                    <div *ngIf="submitted && formControl.startdate.errors" class="invalid-feedback">
+                        <div *ngIf="formControl.startdate.errors.required">Start date is required</div>
+                    </div>
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" name="businessname">
-                    <label for="floatingInput">Business Name</label>
+                    <input type="date" class="form-control" name="enddate" formControlName="enddate" id="floatingInput" [ngClass]="{ 'is-invalid': submitted && formControl.enddate.errors }">
+                    <label for="floatingInput">End Date</label>
+                    <div *ngIf="submitted && formControl.enddate.errors" class="invalid-feedback">
+                        <div *ngIf="formControl.enddate.errors.required">End date is required</div>
+                    </div>
                 </div>
 
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                    <option selected>Membership Type</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" name="businessname" formControlName="businessname" [ngClass]="{ 'is-invalid': submitted && formControl.businessname.errors }">
+                    <label for="floatingInput">Business Name</label>
+                    <div *ngIf="submitted && formControl.businessname.errors" class="invalid-feedback">
+                        <div *ngIf="formControl.businessname.errors.required">Business name is required</div>
+                    </div>
+                </div>
+
+                <div class="form-floating mt-4 mb-4">
+                    <textarea class="form-control" name="businessprofile" formControlName="businessprofile"  id="floatingTextarea2" style="height: 100px"></textarea>
+                    <label for="floatingTextarea2">Business Profile</label>
+                </div>
+
+                <select class="form-select form-select-lg mb-3" formControlName="plan" name="selectPlan" aria-label=".form-select-md example" [ngClass]="{ 'is-invalid': submitted && formControl.plan.errors }">
+                    <option value="" selected>Membership Type</option>
+                    <option value="private office plan">PRIVATE OFFICE PLAN</option>
+                    <option value="shared office space">SHARED OFFICE SPACE</option>
+                    <option value="virtual office">VIRTUAL OFFICE</option>
+                    <option value="meeting room">MEETING ROOM</option>
+                    <option value="event and masterclass hall">EVENT AND MASTERCLASS HALL</option>
+                    <option value="podcast studio">PODCAST STUDIO</option>
+                    <div *ngIf="submitted && formControl.plan.errors" class="invalid-feedback">
+                        <div *ngIf="formControl.plan.errors.required">Plan is required</div>
+                    </div>
                   </select>
 
-                <button style="background-color: #000; color:#fff" type="button" class="btn btn btn-lg mt-4">Submit</button>
+                <button (click)="regMember()" style="background-color: #000; color:#fff" type="submit" class="btn btn btn-lg mt-4">Submit</button>
             </div>
         </div>
     </form>
 </div>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="large" type="ball-8bits">  
+    <p style="color: white">Please Wait. </p>  
+</ngx-spinner>
+  
