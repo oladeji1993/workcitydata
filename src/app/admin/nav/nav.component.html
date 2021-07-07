@@ -1,0 +1,28 @@
+<div>
+    <div class="logo pt-4" style="width:100%; text-align: center;">
+        <img src="assets/images/workcitycoworkinglightlogo.png" style="width: 120px;" alt="">
+    </div>
+    <div class="mt-5" style="">
+        <div mat-list-item [routerLink]="['/admin']" style="padding-top: 13px; padding-bottom: 13px; padding-left:40px;cursor:pointer" class="menu">
+            <i style="color:#fff; padding-right:10px" class="fas fa-tachometer-alt"></i>
+            <a style="text-decoration: none; color:#fff; line-height: 1; font-size: 14px;cursor:pointer">Dashboard</a>
+        </div>
+        <div mat-list-item [routerLink]="['./add-user']" routerLinkActive="is-active"  style="padding-top: 13px; padding-bottom: 13px; padding-left:40px;cursor:pointer" class="menu">
+            <i style="color:#fff; padding-right:10px" class="fas fa-user-plus"></i>
+            <a style="text-decoration: none; color:#fff; font-size: 14px;cursor:pointer">Add User</a>
+        </div>
+        <!-- <div  [routerLink]="['./dashboard-resources']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px;  padding-left:40px;" class="menu">
+            <img src="assets/images/resource.png" alt="">
+            <a style="text-decoration: none; color:#fff; font-size: 14px;">Delete Member</a>
+        </div> -->
+        <div  [routerLink]="['./update-details']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; padding-left:40px;cursor:pointer" class="menu">
+            <i style="color:#fff; padding-right:10px"  class="fas fa-edit"></i>
+            <a style="text-decoration: none; color:#fff; font-size: 14px; cursor:pointer">Update</a>
+        </div>
+        <div  [routerLink]="['./submission']" (click)=" logOut()" style="padding-top: 13px; padding-bottom: 13px; padding-left:40px;cursor:pointer" class="menu">
+            <i style="color:#fff; padding-right:10px" class="fas fa-sign-out-alt"></i>
+            <a style="text-decoration: none; color:#fff; font-size: 14px;cursor:pointer">Logout</a>
+        </div>
+    </div>
+</div>
+

@@ -5,7 +5,6 @@ import { AuthGuard } from './auth.guard';
 import { AuthComponent } from './auth/auth.component';
 import { Auth2Component } from './auth2/auth2.component';
 import { HomeComponent } from './home/home.component';
-import { Register2Component } from './register2/register2.component';
 
 const routes: Routes = [
   {
@@ -28,17 +27,16 @@ const routes: Routes = [
     component: AcesspassComponent
   },
 
-
-
-  {
-    path: "register2",
-    component: Register2Component,
-    canActivate: [AuthGuard]
-  },
   {
     path: "signup",
     component: Auth2Component
-  }
+  },
+
+  { path: 'admin', 
+  loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+  canActivate: [AuthGuard]
+},
+  
 ];
 
 @NgModule({

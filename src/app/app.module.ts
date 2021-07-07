@@ -6,7 +6,6 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { AuthComponent } from './auth/auth.component';
 import { Auth2Component } from './auth2/auth2.component';
-import { Register2Component } from './register2/register2.component';
 import { AuthService } from './services/auth/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from "ngx-spinner"; 
@@ -16,6 +15,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
 import { AcesspassComponent } from './acesspass/acesspass.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
+// import { NavigationComponent } from './admin-dashboard/navigation/navigation.component';
 
 
 
@@ -25,15 +29,22 @@ import { AcesspassComponent } from './acesspass/acesspass.component';
     HomeComponent,
     AuthComponent,
     Auth2Component,
-    Register2Component,
-    AcesspassComponent
+    AcesspassComponent,
+ 
+    
+    // NavigationComponent,
   ],
+  // exports:[NavigationComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     NgxSpinnerModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatDialogModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     ReactiveFormsModule

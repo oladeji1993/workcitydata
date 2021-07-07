@@ -54,7 +54,7 @@ export class AuthComponent implements OnInit {
                 // localStorage.setItem('token',  JSON.stringify(this.token));
                 this.storageService.setAccessToken(this.token)
                 this.SpinnerService.hide();
-                this.router.navigate(['/register2'])
+                this.router.navigate(['/admin'])
                 this.notifyService.showSuccess(data.message, "Success")
                 
               }

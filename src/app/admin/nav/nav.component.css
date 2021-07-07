@@ -1,0 +1,15 @@
+.menu img{
+    padding-right:20px;
+}
+
+.menu:hover{
+    background-color: rgb(174, 171, 171);
+}
+
+.wrapper i{
+    color: #fff
+}
+
+.is-active{
+    background-color: rgb(174, 171, 171);
+}
