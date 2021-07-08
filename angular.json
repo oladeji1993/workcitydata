@@ -6,7 +6,8 @@
     "workcitydata": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:application": {
+        "@schematics/angular:application":
+	 {
           "strict": true
         }
       },
