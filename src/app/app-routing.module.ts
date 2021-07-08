@@ -37,6 +37,7 @@ const routes: Routes = [
   canActivate: [AuthGuard]
 },
   
+{ path: '**', redirectTo: '/'}
 ];
 
 @NgModule({
