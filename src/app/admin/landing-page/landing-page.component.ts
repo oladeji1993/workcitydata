@@ -1,3 +1,4 @@
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { GetUsersService } from './../../services/getUsers/get-users.service';
 import { Component, OnInit } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
@@ -12,6 +13,8 @@ export class LandingPageComponent implements OnInit {
   sideBarOpen: boolean = false;
 
   Members:any = [];
+  p: number = 1;
+  fullname:any
   constructor(
     private getUsersService: GetUsersService
   ) { }
@@ -41,6 +44,18 @@ export class LandingPageComponent implements OnInit {
       console.log(err)
     })
 
+  }
+
+
+
+  search(){
+    if(this.fullname == ""){
+      this.ngOnInit()
+    }else{
+      this.Members = this.Members.filter((resp:any )=>{
+        return resp.fullname.toLocaleLowerCase().match(this.fullname.toLocaleLowerCase());
+      })
+    }
   }
 
 

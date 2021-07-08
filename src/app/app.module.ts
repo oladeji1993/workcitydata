@@ -1,3 +1,4 @@
+import { NgxPaginationModule } from 'ngx-pagination';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,7 +20,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
-// import { NavigationComponent } from './admin-dashboard/navigation/navigation.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Ng2OrderModule } from 'ng2-order-pipe';
 
 
 
@@ -43,7 +45,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     NgxSpinnerModule,
     MatSidenavModule,
     MatButtonModule,
+    Ng2SearchPipeModule,
+    Ng2OrderModule,
     MatMenuModule,
+    NgxPaginationModule,
     MatDialogModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
