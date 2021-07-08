@@ -33,6 +33,10 @@ export class AcesspassComponent implements OnInit {
     return this.accessForm.controls;
   }
 
+  back(){
+    this.router.navigate(['/home'])
+  }
+
   getPass(){
     this.submitted = true;
     if(this.accessForm.invalid){
