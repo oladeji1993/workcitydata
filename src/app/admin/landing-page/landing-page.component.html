@@ -41,7 +41,7 @@
             <div class="content-container">
                 <div style="display: flex; justify-content: space-between !important;">
                     <div>
-                        <div style=" font-size:25px; font-weight:600">209778</div>
+                        <div style=" font-size:25px; font-weight:600">{{Members.length}}</div>
                         <div class="pt-2" style="color:#B5861E; font-size:14px">Total</div>
                     </div>
                 </div>
@@ -74,91 +74,28 @@
                     <!-- <div class="card-body"  > -->
                         <div class="table-responsive">
                             <table width="100%">
-                                <thead style="background: #000; color:white; font-size:15px;padding:10px;">
+                                <thead style="background: #486787; color:white; font-size:15px;padding:10px;">
                                     <tr style="padding:30px">
                                         <td>S/N</td>
-                                        <td>First Name</td>    
-                                        <td>Last Name</td>
-                                        <td>Email</td>
-                                        <td>Date Joined</td>    
-                                        <td>Aprooved By</td>
-                                             
+                                        <td>FULLNAME</td>    
+                                        <td>EMAIL</td>
+                                        <td>PHONE NUMBER</td>
+                                        <td>PLAN</td>    
+                                        <td>AMOUNT</td>
+                                         
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td style="">Odeyemi</td>
-                                        <td>Oluwaseun</td>
-                                        <td>seun@gmail.com</td>
-                                        <td>20/20/2021</td>
-                                        <td>Mu Admin</td>
-                                    
+                                    <tr *ngFor="let Member of Members index as i">
+                                        <td>{{i + 1}}</td>
+                                        <td style="color:#00356B">{{Member.fullname}}</td>
+                                        <td>{{Member.email}}</td>
+                                        <td>{{Member.phonenumber}}</td>
+                                        <td>{{Member.plan}}</td>
+                                        <td>{{Member.amount}}</td>
+                                
                                     </tr>
-
-
-                                    <tr>
-                                        <td>2</td>
-                                        <td style="">Odeyemi</td>
-                                        <td>Oluwaseun</td>
-                                        <td>seun@gmail.com</td>
-                                        <td>20/20/2021</td>
-                                        <td>Mu Admin</td>
-                                    
-                                    </tr>
-
-                                    <tr>
-                                        <td>3</td>
-                                        <td style="">Odeyemi</td>
-                                        <td>Oluwaseun</td>
-                                        <td>seun@gmail.com</td>
-                                        <td>20/20/2021</td>
-                                        <td>Mu Admin</td>
-                                    
-                                    </tr>
-
-
-                                    <tr>
-                                        <td>4</td>
-                                        <td style="">Odeyemi</td>
-                                        <td>Oluwaseun</td>
-                                        <td>seun@gmail.com</td>
-                                        <td>20/20/2021</td>
-                                        <td>Mu Admin</td>
-                                    
-                                    </tr>
-
-
-                                    <tr>
-                                        <td>5</td>
-                                        <td style="">Odeyemi</td>
-                                        <td>Oluwaseun</td>
-                                        <td>seun@gmail.com</td>
-                                        <td>20/20/2021</td>
-                                        <td>Mu Admin</td>
-                                    
-                                    </tr>
-
-
-                                    <tr>
-                                        <td>6</td>
-                                        <td style="">Odeyemi</td>
-                                        <td>Oluwaseun</td>
-                                        <td>seun@gmail.com</td>
-                                        <td>20/20/2021</td>
-                                        <td>Mu Admin</td>
-                                    
-                                    </tr>
-
-                                    <tr>
-                                        <td>7</td>
-                                        <td style="">Odeyemi</td>
-                                        <td>Oluwaseun</td>
-                                        <td>seun@gmail.com</td>
-                                        <td>20/20/2021</td>
-                                        <td>Mu Admin</td>
-                                    
-                                    </tr>
+                                   
                                 </tbody>
                             </table>
                         </div>
@@ -167,8 +104,6 @@
             </div>
         </div> 
     </div>
-
-</div>
 
 
 <div class="sidebar">

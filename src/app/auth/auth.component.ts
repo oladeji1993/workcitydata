@@ -44,7 +44,7 @@ export class AuthComponent implements OnInit {
       this.submitted = true;
         if (this.loginForm.invalid) {
             return;
-        }
+        } 
           this.SpinnerService.show();
           this.auth.loginUser(this.loginForm.value)
           .subscribe((data:any) =>{

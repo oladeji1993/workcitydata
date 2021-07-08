@@ -13,6 +13,7 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { UpdateDetailsComponent } from './update-details/update-details.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatMenuModule,
     MatDialogModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatPaginatorModule
   ]
 })
 export class AdminModule { }
