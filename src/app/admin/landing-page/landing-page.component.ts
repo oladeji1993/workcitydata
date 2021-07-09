@@ -13,6 +13,9 @@ export class LandingPageComponent implements OnInit {
   sideBarOpen: boolean = false;
 
   Members:any = [];
+  SD : any = []
+  VP : any = []
+  PO : any = []
   p: number = 1;
   fullname:any
   constructor(
@@ -37,7 +40,11 @@ export class LandingPageComponent implements OnInit {
   loadUsers(){
     this.getUsersService.getMembers().subscribe((info:any)=>{
       if(info){
+        console.log(info)
        this.Members = info.members
+       this.SD = info.SD
+       this.PO = info.PO
+       this.VP = info.VP
       console.log(this.Members)
       }
     }, err =>{
