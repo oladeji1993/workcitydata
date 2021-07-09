@@ -1,3 +1,4 @@
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -12,7 +13,9 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { UpdateDetailsComponent } from './update-details/update-details.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {NgxPaginationModule} from 'ngx-pagination'; 
 
 
 @NgModule({
@@ -28,11 +31,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     AdminRoutingModule,
     MatSidenavModule,
     NgxSpinnerModule,
+    FormsModule,
     // NavigationComponent,
     MatButtonModule,
     MatMenuModule,
     MatDialogModule,
-    ReactiveFormsModule
+    Ng2SearchPipeModule,
+    ReactiveFormsModule,
+    MatPaginatorModule,
+    NgxPaginationModule
   ]
 })
 export class AdminModule { }

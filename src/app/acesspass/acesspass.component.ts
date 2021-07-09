@@ -62,5 +62,5 @@ export class AcesspassComponent implements OnInit {
 
     }
   }
-  }
+}
 
