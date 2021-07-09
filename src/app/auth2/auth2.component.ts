@@ -53,7 +53,8 @@ export class Auth2Component implements OnInit {
       this.notifyService.showSuccess(data.message, "Success")
     }, err=>{
       this.SpinnerService.hide();
-      this.notifyService.showError(err.error, "Error")
+      let error = err.error
+      this.notifyService.showError(error.message, "Error")
     })
     }
   }

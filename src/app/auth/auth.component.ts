@@ -59,7 +59,7 @@ export class AuthComponent implements OnInit {
                 
               }
         }, err =>{
-          // this.msg = data.err
+            console.log(err)
             this.SpinnerService.hide();
             let error = err.error
             this.notifyService.showError(error.message, "Error")

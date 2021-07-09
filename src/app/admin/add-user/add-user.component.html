@@ -81,12 +81,12 @@
 
                 <select class="form-select form-select-lg mb-3" formControlName="plan" name="selectPlan" aria-label=".form-select-md example" [ngClass]="{ 'is-invalid': submitted && formControl.plan.errors }">
                     <option value="" selected>Membership Type</option>
-                    <option value="private office plan">PRIVATE OFFICE PLAN</option>
-                    <option value="shared office space">SHARED OFFICE SPACE</option>
-                    <option value="virtual office">VIRTUAL OFFICE</option>
-                    <option value="meeting room">MEETING ROOM</option>
-                    <option value="event and masterclass hall">EVENT AND MASTERCLASS HALL</option>
-                    <option value="podcast studio">PODCAST STUDIO</option>
+                    <option value="PO">PRIVATE OFFICE PLAN</option>
+                    <option value="SD">SHARED OFFICE SPACE</option>
+                    <option value="VO">VIRTUAL OFFICE</option>
+                    <option value="MR">MEETING ROOM</option>
+                    <option value="EMH">EVENT AND MASTERCLASS HALL</option>
+                    <option value="PS">PODCAST STUDIO</option>
                     <div *ngIf="submitted && formControl.plan.errors" class="invalid-feedback">
                         <div *ngIf="formControl.plan.errors.required">Plan is required</div>
                     </div>
