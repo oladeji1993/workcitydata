@@ -85,68 +85,7 @@ export class StorageService {
   removeAccessToken(): any {
     this.secureStorage.removeItem(TOKEN);
   }
-
-  // setRefreshToken(token: string): any {
-  //   this.secureStorage.setItem(REFRESH_TOKEN, token)
-  // }
-
-  // getRefreshToken(): any {
-  //   let token = this.secureStorage.getItem(REFRESH_TOKEN);
-  //   if (token) {
-  //     return token;
-  //   }
-  //   return null;
-  // }
-
-  // removeRefreshToken(): any {
-  //   this.secureStorage.removeItem(REFRESH_TOKEN);
-  // }
-
-  // setCanNavigate(nav: string): any {
-  //   this.secureStorage.setItem(CAN_NAV, nav)
-  // }
-
-  // getCanNavigate(): any {
-  //   let nav = this.secureStorage.getItem(CAN_NAV);
-  //   if (nav) {
-  //     return nav;
-  //   }
-  //   return null;
-  // }
-
-  // removeCanNavigate(): any {
-  //   this.secureStorage.removeItem(CAN_NAV);
-  // }
-
-  // setOrganization(org: any): any {
-  //   this.secureStorage.setItem(ORG, org)
-  // }
-
-  // getOrganization(): any {
-  //   let org = this.secureStorage.getItem(ORG);
-  //   if (org) {
-  //     return org;
-  //   }
-  //   return null;
-  // }
-
-  // removeOrganization(): any {
-  //   this.secureStorage.removeItem(ORG);
-  // }
-
-  // setData(key: string, value: any) {
-  //   let data = JSON.stringify((value));
-  //   localStorage.setItem(key, data);
-  // }
-
-  // getData(key: string) {
-  //   let data = localStorage.getItem(key);
-  //   if (data != null) {
-  //     return JSON.parse(data);
-  //   }
-  //   return null;
-  // }
-
+  
   clearCurrentUser() {
     this.secureStorage.removeItem(TOKEN);
   }
