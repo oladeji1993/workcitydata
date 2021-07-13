@@ -25,16 +25,6 @@
                       <div *ngIf="formControl.email.errors.email">Email must be a valid email address</div>
                   </div>
                 </div>
-                <!-- <div class="field">
-                  <input type="text" name="staff_id" formControlName="staff_id"  placeholder="Staff_id" required>
-                </div> -->
-                <div class="field">
-                  <input type="password" name="password" formControlName="password"  placeholder="Password" [ngClass]="{ 'is-invalid': submitted && formControl.password.errors }">
-                  <div *ngIf="submitted && formControl.password.errors" class="invalid-feedback">
-                    <div *ngIf="formControl.password.errors.required">Password is required</div>
-                    <div *ngIf="formControl.password.errors.minlength">Password must be at least 6 characters</div>
-                </div>
-                </div>
                 <div class="field btn">
                   <div class="btn-layer"></div>
                   <button (click)="registerUser()" type="submit" style="background-color: black; color:#fff" class="btn btn btn-lg">Signup</button>
