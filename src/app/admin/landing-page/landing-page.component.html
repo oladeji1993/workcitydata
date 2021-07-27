@@ -4,7 +4,7 @@
 </div>
 <div class="single-container">
     <div class="row" style="justify-content: center; margin-top:4%">
-        <div class="col-sm-3 ">
+        <div class="col-sm-3"  style="cursor:pointer" (click)="getPrivatePlan()">
             <div class="content-container">
                 <div style="display: flex; justify-content: space-between !important;">
                     <div>
@@ -15,7 +15,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-3" style="cursor:pointer" (click)="getSharedPlan()">
             <div class="content-container">
                 <div style="display: flex; justify-content: space-between !important;">
                     <div>
@@ -26,18 +26,18 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-3">
+        <div style="cursor:pointer" class="col-sm-3" (click)="getVirtualPlan()">
             <div class="content-container">
                 <div style="display: flex; justify-content: space-between !important;">
                     <div>
-                        <div style=" font-size:25px; font-weight:600">{{VP.length}}</div>
+                        <div style=" font-size:25px; font-weight:600">{{VO.length}}</div>
                         <div class="pt-2" style="color:#B5861E; font-size:14px">VIRTUAL OFFICE</div>
                     </div>
                     <div style=" border-radius: 5px;"><i style="font-size: 25px;"  class="fas fa-laptop-house"></i></div>
                 </div>
             </div>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-3"  style="cursor:pointer" (click)="getTotalUser()">
             <div class="content-container">
                 <div style="display: flex; justify-content: space-between !important;">
                     <div>
@@ -53,7 +53,7 @@
     <div class="row" style="display:flex; justify-content: space-between; margin-top:4%">
         <div class="col-md-6" style="font-size:20px; ">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search Here" name="fullname" [(ngModel)] = "fullname" (ngModelChange)="search()">
+                <input type="text" class="form-control" placeholder="Search Here" name="fullname" [(ngModel)] = "term">
             </div>
         </div>
         <div class="col-md-6" id="navigations" style=" justify-content:space-around; ">
@@ -82,7 +82,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let Member of Members | paginate : {itemsPerPage:8, currentPage:p}  index as i">
+                                    <tr *ngFor="let Member of Members | paginate : {itemsPerPage:8, currentPage:p} | filter:term  index as i">
                                         <!-- <td>{{i + 1}}</td> -->
                                         <td style="color:#00356B">{{Member.fullname}}</td>
                                         <td>{{Member.email}}</td>

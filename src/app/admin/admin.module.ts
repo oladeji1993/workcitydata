@@ -11,11 +11,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AddUserComponent } from './add-user/add-user.component';
-import { UpdateDetailsComponent } from './update-details/update-details.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import {NgxPaginationModule} from 'ngx-pagination'; 
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
@@ -24,7 +23,6 @@ import {NgxPaginationModule} from 'ngx-pagination';
     NavComponent,
     LandingPageComponent,
     AddUserComponent,
-    UpdateDetailsComponent
   ],
   imports: [
     CommonModule,
