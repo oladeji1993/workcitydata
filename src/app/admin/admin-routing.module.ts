@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddUserComponent } from './add-user/add-user.component';
 import { AdminComponent } from './admin.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { UpdateDetailsComponent } from './update-details/update-details.component';
 
 const routes: Routes = [
   {
@@ -23,12 +22,6 @@ const routes: Routes = [
           path: 'add-user',
           component: AddUserComponent
       },
-
-      {
-        path: 'update-details',
-        component: UpdateDetailsComponent
-    },
-
   //   {
   //     path: 'home',
   //     component: LandingPageComponent

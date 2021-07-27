@@ -11,10 +11,10 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class LandingPageComponent implements OnInit {
   sideBarOpen: boolean = false;
-
+  term!: string;
   Members:any = [];
   SD : any = []
-  VP : any = []
+  VO : any = []
   PO : any = []
   p: number = 1;
   fullname:any
@@ -44,7 +44,7 @@ export class LandingPageComponent implements OnInit {
        this.Members = info.members
        this.SD = info.SD
        this.PO = info.PO
-       this.VP = info.VP
+       this.VO = info.VP
       console.log(this.Members)
       }
     }, err =>{
@@ -54,15 +54,29 @@ export class LandingPageComponent implements OnInit {
   }
 
 
+  getVirtualPlan(){
+    this.getUsersService.getMembers().subscribe((info:any)=>{
+      this.Members = info.VP
+    })
+  }
 
-  search(){
-    if(this.fullname == ""){
-      this.ngOnInit()
-    }else{
-      this.Members = this.Members.filter((resp:any )=>{
-        return resp.fullname.toLocaleLowerCase().match(this.fullname.toLocaleLowerCase());
-      })
-    }
+
+  getSharedPlan(){
+    this.getUsersService.getMembers().subscribe((info:any)=>{
+      this.Members = info.SD
+    })
+  }
+
+  getPrivatePlan(){
+    this.getUsersService.getMembers().subscribe((info:any)=>{
+      this.Members = info.PO
+    })
+  }
+
+  getTotalUser(){
+    this.getUsersService.getMembers().subscribe((info:any)=>{
+      this.Members = info.members
+    })
   }
 
 
