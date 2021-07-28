@@ -15,6 +15,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { PaymentComponent } from './payment/payment.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     NavComponent,
     LandingPageComponent,
     AddUserComponent,
+    PaymentComponent,
   ],
   imports: [
     CommonModule,
