@@ -16,6 +16,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { PaymentComponent } from './payment/payment.component';
+import { ModifyComponent } from './modify/modify.component';
+import { EditModalComponent } from './edit-modal/edit-modal.component';
+import { DeleteModalComponent } from './delete-modal/delete-modal.component';
 
 
 @NgModule({
@@ -25,6 +28,9 @@ import { PaymentComponent } from './payment/payment.component';
     LandingPageComponent,
     AddUserComponent,
     PaymentComponent,
+    ModifyComponent,
+    EditModalComponent,
+    DeleteModalComponent,
   ],
   imports: [
     CommonModule,
@@ -32,8 +38,8 @@ import { PaymentComponent } from './payment/payment.component';
     MatSidenavModule,
     NgxSpinnerModule,
     FormsModule,
-    // NavigationComponent,
     MatButtonModule,
+    MatDialogModule,
     MatMenuModule,
     MatDialogModule,
     Ng2SearchPipeModule,

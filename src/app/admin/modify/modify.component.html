@@ -1,0 +1,62 @@
+<div style="display: flex; justify-content: space-between; background-color: #fff;padding:18px 50px;box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);">
+    <div style="font-size: 22px; font-weight:550; " class="amburger">MODIFY</div>
+<div style="font-size: 18px; font-weight:550; ">Admin</div>
+</div>
+<div class="single-container">
+    <div class="row" style="display:flex; justify-content: space-between; margin-top:4%">
+        <div class="col-md-6" style="font-size:20px; ">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search Here" name="fullname" [(ngModel)] = "term">
+            </div>
+        </div>
+        <div class="col-md-6" id="navigations" style=" justify-content:space-around; ">
+    
+        </div>
+    </div>
+
+
+    <div class="mt-2">  
+        <div class="recent-grid" >
+            <div class="projects">
+                <!-- <div class="card"> -->
+                    <!-- <div class="card-body"  > -->
+                        <div class="table-responsive">
+                            <table width="100%">
+                                <thead style="background: #000; color:white; font-size:15px;padding:10px;">
+                                    <tr style="padding:30px">
+                                        <!-- <td>S/N</td> -->
+                                        <td>NAME</td>    
+                                        <td>EMAIL</td>
+                                        <td>BIZ NAME</td>
+                                        <td>MODIFY</td>
+                                         
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let Member of Members | paginate : {itemsPerPage:8, currentPage:p} | filter:term  index as i">
+                                        <!-- <td>{{i + 1}}</td> -->
+                                        <td style="color:#00356B">{{Member.fullname}}</td>
+                                        <td>{{Member.email}}</td>
+                                        <td>{{Member.businessname}}</td>
+                                        <td>
+                                            <button type="button" style="margin-right:5px" class="btn btn-success btn-sm" (click)="openDialog(Member)">Update</button>
+                                            <button type="button" class="btn btn-danger btn-sm" (click)="Delete()">Delete</button>
+                                        </td>
+                                        <!-- <td>{{Member.plan}}</td>  -->
+                                    </tr>
+                                </tbody>
+                                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                            </table>
+                        </div>
+                    <!-- </div> -->
+                <!-- </div> -->
+            </div>
+        </div> 
+    </div>
+
+
+
+<div class="sidebar">
+    <li class="cancel" style="list-style:none; padding:20px; font-size:40px; cursor: pointer; float:right"><i class="fas fa-times"></i></li>
+</div>
+
