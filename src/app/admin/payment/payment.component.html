@@ -5,10 +5,10 @@
 <div class="single-container">
     <div class="row" style="justify-content: center; margin-top:4%">
         <div class="col-sm-3"  style="cursor:pointer">
-            <div class="content-container">
+            <div class="content-container" (click)="getActive()">
                 <div style="display: flex; justify-content: space-between !important;">
                     <div>
-                        <div style=" font-size:25px; font-weight:600">5</div>
+                        <div style=" font-size:25px; font-weight:600">{{active.length}}</div>
                         <div class="pt-2" style="color:#B5861E; font-size:14px">Active</div>
                     </div>
                     <div style="border-radius: 5px;"><i style="font-size: 25px;" class="far fa-handshake"></i></div>
@@ -19,7 +19,7 @@
             <div class="content-container">
                 <div style="display: flex; justify-content: space-between !important;">
                     <div>
-                        <div style=" font-size:25px; font-weight:600">5</div>
+                        <div style=" font-size:25px; font-weight:600">{{inactive.length}}</div>
                         <div class="pt-2" style="color:#B5861E; font-size:14px">Inactive</div>
                     </div>
                     <div style=" border-radius: 5px;"><i style="font-size: 25px;" class="fas fa-bed"></i></div>
@@ -30,7 +30,7 @@
             <div class="content-container">
                 <div style="display: flex; justify-content: space-between !important;">
                     <div>
-                        <div style=" font-size:25px; font-weight:600">5</div>
+                        <div style=" font-size:25px; font-weight:600">{{due.length}}</div>
                         <div class="pt-2" style="color:#B5861E; font-size:14px">Due</div>
                     </div>
                     <div style=" border-radius: 5px;"><i style="font-size: 25px;"  class="far fa-window-close"></i></div>

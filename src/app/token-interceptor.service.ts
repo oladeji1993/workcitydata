@@ -10,7 +10,6 @@ import { Observable } from 'rxjs';
 export class TokenInterceptorService implements HttpInterceptor {
 
   constructor(
-    // private injector : Injector,
     private authService: AuthService,
     private storageService: StorageService
   ) { }

@@ -55,8 +55,6 @@ export class ModifyComponent implements OnInit {
     console.log(this.response)
     this.messenger.send.next(this.response)
     this.messenger.resource = this.response
-    // localStorage.setItem("Userdata", this.response)
-
   }
 
   Delete(){
