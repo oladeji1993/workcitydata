@@ -1,0 +1,51 @@
+<div mat-dialog-title style="display: flex; justify-content: space-between; border-bottom: 0.5px solid #C4C4C4; width:100%;padding-bottom:10px">
+    <div style="font-size: 15px; color:rgb(41, 75, 41); font-weight: 600;">Update</div>
+    <div class="delete"> <a class="btn btn-success" mat-dialog-close role="button" data-mdb-toggle="button">Close</a></div>
+</div>
+
+<mat-dialog-content>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label style="color:gray; font-weight:500; padding:5px 0px">FullName</label>
+                <input type="text" class="form-control" value={{UserData.fullname}}>
+            </div>
+
+            <div class="mb-3">
+                <label style="color:gray; font-weight:500; padding:5px 0px">Phone Number</label>
+                <input type="text" class="form-control" value={{UserData.phonenumber}}>
+            </div>
+
+            <div class="mb-3">
+                <label style="color:gray; font-weight:500; padding:5px 0px">Start Date</label>
+                <input type="text" class="form-control" value={{UserData.startdate}}>
+            </div>
+
+            <div class="mb-3">
+                <label style="color:gray; font-weight:500; padding:5px 0px">Business profile</label>
+                <input type="text" class="form-control" value={{UserData.businessprofile}}>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label style="color:gray; font-weight:500; padding:5px 0px">Email</label>
+                <input type="text" class="form-control"value={{UserData.email}}>
+            </div>
+            <div class="mb-3">
+                <label style="color:gray; font-weight:500; padding:5px 0px">Plan</label>
+                <input type="text" class="form-control"value={{UserData.plan}}>
+            </div>
+            <div class="mb-3">
+                <label style="color:gray; font-weight:500; padding:5px 0px">End Date</label>
+                <input type="text" class="form-control" value={{UserData.enddate}}>
+            </div>
+            <div class="mb-3">
+                <label style="color:gray; font-weight:500; padding:5px 0px">Amount</label>
+                <input type="text" class="form-control" value={{UserData.amount}}>
+            </div>
+        </div>
+        <div>
+            <button type="button" class="btn btn-success">Update</button>
+        </div>
+    </div>
+</mat-dialog-content>
