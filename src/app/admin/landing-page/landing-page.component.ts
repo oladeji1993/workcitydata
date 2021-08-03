@@ -3,6 +3,7 @@ import { GetUsersService } from './../../services/getUsers/get-users.service';
 import { Component, OnInit } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-landing-page',
@@ -19,7 +20,8 @@ export class LandingPageComponent implements OnInit {
   p: number = 1;
   fullname:any
   constructor(
-    private getUsersService: GetUsersService
+    private getUsersService: GetUsersService,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit(): void {
@@ -38,6 +40,7 @@ export class LandingPageComponent implements OnInit {
 
 
   loadUsers(){
+    this.spinner.show()
     this.getUsersService.getMembers().subscribe((info:any)=>{
       if(info){
         console.log(info)
@@ -46,8 +49,10 @@ export class LandingPageComponent implements OnInit {
        this.PO = info.PO
        this.VO = info.VP
       console.log(this.Members)
+      this.spinner.hide()
       }
     }, err =>{
+      this.spinner.hide()
       console.log(err)
     })
 
@@ -55,27 +60,38 @@ export class LandingPageComponent implements OnInit {
 
 
   getVirtualPlan(){
+    this.spinner.show()
     this.getUsersService.getMembers().subscribe((info:any)=>{
       this.Members = info.VP
+      this.spinner.hide()
     })
   }
 
 
   getSharedPlan(){
+    this.spinner.show()
     this.getUsersService.getMembers().subscribe((info:any)=>{
       this.Members = info.SD
+      this.spinner.hide()
+
     })
   }
 
   getPrivatePlan(){
+    this.spinner.show()
     this.getUsersService.getMembers().subscribe((info:any)=>{
       this.Members = info.PO
+      this.spinner.hide()
+
     })
   }
 
   getTotalUser(){
+    this.spinner.show()
     this.getUsersService.getMembers().subscribe((info:any)=>{
-      this.Members = info.members
+    this.Members = info.members
+    this.spinner.hide()
+
     })
   }
 

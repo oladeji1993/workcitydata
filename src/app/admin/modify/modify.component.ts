@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { GetUsersService } from 'src/app/services/getUsers/get-users.service';
 import { MessengerService } from 'src/app/services/messenger/messenger.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-modify',
@@ -22,7 +23,8 @@ export class ModifyComponent implements OnInit {
   constructor(
     private getUsersService: GetUsersService,
     public dialog: MatDialog,
-    private messenger: MessengerService
+    private messenger: MessengerService,
+    private spinner: NgxSpinnerService
 
   ) { }
 
@@ -33,6 +35,7 @@ export class ModifyComponent implements OnInit {
 
   
   loadUsers(){
+    this.spinner.show()
     this.getUsersService.getMembers().subscribe((info:any)=>{
       if(info){
         console.log(info)
@@ -40,6 +43,7 @@ export class ModifyComponent implements OnInit {
       //  this.SD = info.SD
       //  this.PO = info.PO
       //  this.VO = info.VP
+      this.spinner.hide()
       console.log(this.Members)
       }
     }, err =>{
